@@ -2,6 +2,7 @@ package persistence
 
 import (
 	"context"
+	"errors"
 	"github.com/RadisaMilovcevic/bsep_xws/microservices_demo/account_service/domain"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
@@ -40,6 +41,24 @@ func (store *AccountMongoDBStore) Insert(account *domain.Account) error {
 		return err
 	}
 	account.Id = result.InsertedID.(primitive.ObjectID)
+	return nil
+}
+
+func (store *AccountMongoDBStore) UpdateStatus(account *domain.Account) error {
+	result, err := store.accounts.UpdateOne(
+		context.TODO(),
+		bson.M{"_id": account.Id},
+		bson.D{
+			{"$set", bson.D{{"Username", account.Username}}},
+			{"$set", bson.D{{"Password", account.Password}}},
+		},
+	)
+	if err != nil {
+		return err
+	}
+	if result.MatchedCount != 1 {
+		return errors.New("one document should've been updated")
+	}
 	return nil
 }
 

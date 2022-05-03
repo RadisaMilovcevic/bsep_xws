@@ -7,4 +7,5 @@ type AccountStore interface {
 	GetAll() ([]*Account, error)
 	Insert(account *Account) error
 	DeleteAll()
+	UpdateStatus(account *Account) error
 }

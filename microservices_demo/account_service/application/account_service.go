@@ -22,3 +22,15 @@ func (service *AccountService) Get(id primitive.ObjectID) (*domain.Account, erro
 func (service *AccountService) GetAll() ([]*domain.Account, error) {
 	return service.store.GetAll()
 }
+
+func (service *AccountService) Create(account *domain.Account, address string) error {
+	err := service.store.Insert(account)
+	if err != nil {
+		return err
+	}
+	if err != nil {
+		_ = service.store.UpdateStatus(account)
+		return err
+	}
+	return nil
+}
