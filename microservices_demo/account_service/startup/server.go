@@ -28,11 +28,11 @@ func (server *Server) Start() {
 	mongoClient := server.initMongoClient()
 	accountStore := server.initAccountStore(mongoClient)
 
-	productService := server.initAccountService(accountStore)
+	accountService := server.initAccountService(accountStore)
 
-	productHandler := server.initAccountHandler(productService)
+	accountHandler := server.initAccountHandler(accountService)
 
-	server.startGrpcServer(productHandler)
+	server.startGrpcServer(accountHandler)
 }
 
 func (server *Server) initMongoClient() *mongo.Client {
