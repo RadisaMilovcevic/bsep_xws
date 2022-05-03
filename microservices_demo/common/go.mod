@@ -1,4 +1,4 @@
-module github.com/tamararankovic/microservices_demo/common
+module github.com/RadisaMilovcevic/bsep_xws/microservices_demo/common
 
 go 1.17
 

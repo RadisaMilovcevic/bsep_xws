@@ -1,8 +1,8 @@
-module github.com/tamararankovic/microservices_demo/ordering_service
+module github.com/RadisaMilovcevic/bsep_xws/microservices_demo/ordering_service
 
 go 1.17
 
-replace github.com/tamararankovic/microservices_demo/common => ../common
+replace github.com/RadisaMilovcevic/bsep_xws/microservices_demo/common => ../common
 
 require (
 	go.mongodb.org/mongo-driver v1.8.4

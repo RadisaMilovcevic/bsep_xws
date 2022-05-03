@@ -2,8 +2,8 @@ package api
 
 import (
 	"account_service/application"
-	pb "common/proto/account_service"
 	"context"
+	pb "github.com/RadisaMilovcevic/bsep_xws/microservices_demo/common/proto/account_service"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
