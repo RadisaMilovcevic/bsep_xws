@@ -34,8 +34,9 @@ func (handler *AccountHandler) GetDetails(w http.ResponseWriter, r *http.Request
 		return
 	}
 	accountDetails := &domain.Account{Id: id}
-	accountClient := services.NewShippingClient(handler.accountClientAddress)
+	accountClient := services.NewAccountClient(handler.accountClientAddress)
 	accountInfo, err := accountClient.Get(context.TODO(), &account.GetRequest{Id: accountDetails.Id})
+	accountDetails.Id = accountInfo.Account.Id
 	response, err := json.Marshal(accountDetails)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
