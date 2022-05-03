@@ -23,3 +23,9 @@ type OrderDetails struct {
 	ShippingStatus  string
 	OrderItems      []OrderItem
 }
+
+type Account struct {
+	Id       string
+	Username string
+	Password string
+}

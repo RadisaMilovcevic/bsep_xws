@@ -1,13 +1,17 @@
 package startup
 
 import (
-	"account_service/application"
-	"account_service/domain"
-	"account_service/infrastructure/api"
-	"account_service/infrastructure/persistence"
-	"account_service/startup/config"
+	"fmt"
+	"github.com/RadisaMilovcevic/bsep_xws/microservices_demo/account_service/application"
+	"github.com/RadisaMilovcevic/bsep_xws/microservices_demo/account_service/domain"
+	"github.com/RadisaMilovcevic/bsep_xws/microservices_demo/account_service/infrastructure/api"
+	"github.com/RadisaMilovcevic/bsep_xws/microservices_demo/account_service/infrastructure/persistence"
+	"github.com/RadisaMilovcevic/bsep_xws/microservices_demo/account_service/startup/config"
+	account "github.com/RadisaMilovcevic/bsep_xws/microservices_demo/common/proto/account_service"
 	"go.mongodb.org/mongo-driver/mongo"
+	"google.golang.org/grpc"
 	"log"
+	"net"
 )
 
 type Server struct {
@@ -57,4 +61,16 @@ func (server *Server) initAccountService(store domain.AccountStore) *application
 
 func (server *Server) initAccountHandler(service *application.AccountService) *api.AccountHandler {
 	return api.NewAccountHandler(service)
+}
+
+func (server *Server) startGrpcServer(accountHandler *api.AccountHandler) {
+	listener, err := net.Listen("tcp", fmt.Sprintf(":%s", server.config.Port))
+	if err != nil {
+		log.Fatalf("failed to listen: %v", err)
+	}
+	grpcServer := grpc.NewServer()
+	account.RegisterAccountServiceServer(grpcServer, accountHandler)
+	if err := grpcServer.Serve(listener); err != nil {
+		log.Fatalf("failed to serve: %s", err)
+	}
 }

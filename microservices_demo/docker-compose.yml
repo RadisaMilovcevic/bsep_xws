@@ -1,6 +1,22 @@
 version: "3.8"
 
 services:
+  account_service:
+    image: account_service
+    container_name: account_service
+    build:
+      context: .
+      dockerfile: ./account_service/Dockerfile
+    restart: on-failure
+    environment:
+      CATALOGUE_DB_HOST: ${ACCOUNT_DB_HOST}
+      CATALOGUE_DB_PORT: ${ACCOUNT_DB_PORT}
+      CATALOGUE_SERVICE_PORT: ${ACCOUNT_SERVICE_PORT}
+    depends_on:
+      - account_db
+    networks:
+      - network
+
   catalogue_service:
     image: catalogue_service
     container_name: catalogue_service
@@ -105,6 +121,13 @@ services:
       SHIPPING_SERVICE_PORT: ${SHIPPING_SERVICE_PORT}
       INVENTORY_SERVICE_HOST: ${INVENTORY_SERVICE_HOST}
       INVENTORY_SERVICE_PORT: ${INVENTORY_SERVICE_PORT}
+    networks:
+      - network
+
+  account_db:
+    image: mongo
+    container_name: account_db
+    restart: on-failure
     networks:
       - network
 

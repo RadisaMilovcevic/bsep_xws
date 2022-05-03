@@ -28,24 +28,24 @@ func (handler *AccountHandler) Get(ctx context.Context, request *pb.GetRequest) 
 	if err != nil {
 		return nil, err
 	}
-	accountPb := mapAcount(account)
+	accountPb := mapAccount(account)
 	response := &pb.GetResponse{
 		Account: accountPb,
 	}
 	return response, nil
 }
 
-func (handler *ProductHandler) GetAll(ctx context.Context, request *pb.GetAllRequest) (*pb.GetAllResponse, error) {
-	products, err := handler.service.GetAll()
+func (handler *AccountHandler) GetAll(ctx context.Context, request *pb.GetAllRequest) (*pb.GetAllResponse, error) {
+	accounts, err := handler.service.GetAll()
 	if err != nil {
 		return nil, err
 	}
 	response := &pb.GetAllResponse{
-		Products: []*pb.Product{},
+		Accounts: []*pb.Account{},
 	}
-	for _, product := range products {
-		current := mapProduct(product)
-		response.Products = append(response.Products, current)
+	for _, account := range accounts {
+		current := mapAccount(account)
+		response.Accounts = append(response.Accounts, current)
 	}
 	return response, nil
 }

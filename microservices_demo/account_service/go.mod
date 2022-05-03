@@ -1,4 +1,4 @@
-module account_service
+module github.com/RadisaMilovcevic/bsep_xws/microservices_demo/account_service
 
 go 1.18
 

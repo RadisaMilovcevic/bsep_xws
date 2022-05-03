@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/RadisaMilovcevic/bsep_xws/microservices_demo/api_gateway/infrastructure/api"
 	cfg "github.com/RadisaMilovcevic/bsep_xws/microservices_demo/api_gateway/startup/config"
+	accountGw "github.com/RadisaMilovcevic/bsep_xws/microservices_demo/common/proto/account_service"
 	catalogueGw "github.com/RadisaMilovcevic/bsep_xws/microservices_demo/common/proto/catalogue_service"
 	inventoryGw "github.com/RadisaMilovcevic/bsep_xws/microservices_demo/common/proto/inventory_service"
 	orderingGw "github.com/RadisaMilovcevic/bsep_xws/microservices_demo/common/proto/ordering_service"
@@ -53,14 +54,22 @@ func (server *Server) initHandlers() {
 	if err != nil {
 		panic(err)
 	}
+	accountEmdpoint := fmt.Sprintf("%s:%s", server.config.AccountHost, server.config.AccountPort)
+	err = accountGw.RegisterAccountServiceHandlerFromEndpoint(context.TODO(), server.mux, accountEmdpoint, opts)
+	if err != nil {
+		panic(err)
+	}
 }
 
 func (server *Server) initCustomHandlers() {
 	catalogueEmdpoint := fmt.Sprintf("%s:%s", server.config.CatalogueHost, server.config.CataloguePort)
 	orderingEmdpoint := fmt.Sprintf("%s:%s", server.config.OrderingHost, server.config.OrderingPort)
 	shippingEmdpoint := fmt.Sprintf("%s:%s", server.config.ShippingHost, server.config.ShippingPort)
+	accountEmdpoint := fmt.Sprintf("%s:%s", server.config.AccountHost, server.config.AccountPort)
 	orderingHandler := api.NewOrderingHandler(orderingEmdpoint, catalogueEmdpoint, shippingEmdpoint)
 	orderingHandler.Init(server.mux)
+	accountHandler := api.NewAccountHandler(accountEmdpoint)
+	accountHandler.Init(server.mux)
 }
 
 func (server *Server) Start() {

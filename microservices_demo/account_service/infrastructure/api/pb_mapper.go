@@ -1,7 +1,7 @@
 package api
 
 import (
-	"account_service/domain"
+	"github.com/RadisaMilovcevic/bsep_xws/microservices_demo/account_service/domain"
 	pb "github.com/RadisaMilovcevic/bsep_xws/microservices_demo/common/proto/account_service"
 )
 

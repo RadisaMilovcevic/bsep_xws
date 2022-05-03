@@ -1,7 +1,7 @@
 package application
 
 import (
-	"account_service/domain"
+	"github.com/RadisaMilovcevic/bsep_xws/microservices_demo/account_service/domain"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 

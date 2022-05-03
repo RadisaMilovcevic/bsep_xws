@@ -1,8 +1,8 @@
 package persistence
 
 import (
-	"account_service/domain"
 	"context"
+	"github.com/RadisaMilovcevic/bsep_xws/microservices_demo/account_service/domain"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
