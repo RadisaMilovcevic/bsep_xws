@@ -1,7 +1,7 @@
 package startup
 
 import (
-	"github.com/tamararankovic/microservices_demo/ordering_service/domain"
+	"github.com/RadisaMilovcevic/bsep_xws/microservices_demo/ordering_service/domain"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"time"
 )
