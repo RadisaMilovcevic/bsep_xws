@@ -5,6 +5,7 @@ go 1.17
 replace github.com/RadisaMilovcevic/bsep_xws/microservices_demo/common => ../common
 
 require (
+	github.com/RadisaMilovcevic/bsep_xws/microservices_demo/common v0.0.0-00010101000000-000000000000
 	google.golang.org/grpc v1.45.0
 	gorm.io/driver/postgres v1.3.1
 	gorm.io/gorm v1.23.3
@@ -26,7 +27,7 @@ require (
 	github.com/klauspost/compress v1.15.1 // indirect
 	github.com/minio/highwayhash v1.0.2 // indirect
 	github.com/nats-io/jwt/v2 v2.2.0 // indirect
-	github.com/nats-io/nats.go v1.13.1-0.20220308171302-2f2f6968e98d // indirect
+	github.com/nats-io/nats.go v1.14.0 // indirect
 	github.com/nats-io/nkeys v0.3.0 // indirect
 	github.com/nats-io/nuid v1.0.1 // indirect
 	golang.org/x/crypto v0.0.0-20220321153916-2c7772ba3064 // indirect

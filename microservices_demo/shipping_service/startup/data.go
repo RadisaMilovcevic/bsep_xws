@@ -1,7 +1,7 @@
 package startup
 
 import (
-	"github.com/tamararankovic/microservices_demo/shipping_service/domain"
+	"github.com/RadisaMilovcevic/bsep_xws/microservices_demo/shipping_service/domain"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 

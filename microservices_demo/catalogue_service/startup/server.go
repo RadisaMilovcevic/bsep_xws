@@ -2,12 +2,12 @@ package startup
 
 import (
 	"fmt"
-	"github.com/tamararankovic/microservices_demo/catalogue_service/application"
-	"github.com/tamararankovic/microservices_demo/catalogue_service/domain"
-	"github.com/tamararankovic/microservices_demo/catalogue_service/infrastructure/api"
-	"github.com/tamararankovic/microservices_demo/catalogue_service/infrastructure/persistence"
-	"github.com/tamararankovic/microservices_demo/catalogue_service/startup/config"
-	catalogue "github.com/tamararankovic/microservices_demo/common/proto/catalogue_service"
+	"github.com/RadisaMilovcevic/bsep_xws/microservices_demo/catalogue_service/application"
+	"github.com/RadisaMilovcevic/bsep_xws/microservices_demo/catalogue_service/domain"
+	"github.com/RadisaMilovcevic/bsep_xws/microservices_demo/catalogue_service/infrastructure/api"
+	"github.com/RadisaMilovcevic/bsep_xws/microservices_demo/catalogue_service/infrastructure/persistence"
+	"github.com/RadisaMilovcevic/bsep_xws/microservices_demo/catalogue_service/startup/config"
+	catalogue "github.com/RadisaMilovcevic/bsep_xws/microservices_demo/common/proto/catalogue_service"
 	"go.mongodb.org/mongo-driver/mongo"
 	"google.golang.org/grpc"
 	"log"

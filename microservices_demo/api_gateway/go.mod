@@ -5,6 +5,7 @@ go 1.17
 replace github.com/RadisaMilovcevic/bsep_xws/microservices_demo/common => ../common
 
 require (
+	github.com/RadisaMilovcevic/bsep_xws/microservices_demo/common v0.0.0-00010101000000-000000000000
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.9.0
 	google.golang.org/grpc v1.45.0
 )

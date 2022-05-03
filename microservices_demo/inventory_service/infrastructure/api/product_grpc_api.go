@@ -2,8 +2,8 @@ package api
 
 import (
 	"context"
-	pb "github.com/tamararankovic/microservices_demo/common/proto/inventory_service"
-	"github.com/tamararankovic/microservices_demo/inventory_service/application"
+	pb "github.com/RadisaMilovcevic/bsep_xws/microservices_demo/common/proto/inventory_service"
+	"github.com/RadisaMilovcevic/bsep_xws/microservices_demo/inventory_service/application"
 )
 
 type ProductHandler struct {

@@ -1,8 +1,8 @@
 package api
 
 import (
-	pb "github.com/tamararankovic/microservices_demo/common/proto/shipping_service"
-	"github.com/tamararankovic/microservices_demo/shipping_service/domain"
+	pb "github.com/RadisaMilovcevic/bsep_xws/microservices_demo/common/proto/shipping_service"
+	"github.com/RadisaMilovcevic/bsep_xws/microservices_demo/shipping_service/domain"
 )
 
 func mapOrder(order *domain.Order) *pb.Order {

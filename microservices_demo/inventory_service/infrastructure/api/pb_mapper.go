@@ -1,8 +1,8 @@
 package api
 
 import (
-	pb "github.com/tamararankovic/microservices_demo/common/proto/inventory_service"
-	"github.com/tamararankovic/microservices_demo/inventory_service/domain"
+	pb "github.com/RadisaMilovcevic/bsep_xws/microservices_demo/common/proto/inventory_service"
+	"github.com/RadisaMilovcevic/bsep_xws/microservices_demo/inventory_service/domain"
 )
 
 func mapProduct(product *domain.Product) *pb.Product {

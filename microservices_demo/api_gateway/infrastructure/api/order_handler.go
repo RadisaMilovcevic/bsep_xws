@@ -3,12 +3,12 @@ package api
 import (
 	"context"
 	"encoding/json"
+	"github.com/RadisaMilovcevic/bsep_xws/microservices_demo/api_gateway/domain"
+	"github.com/RadisaMilovcevic/bsep_xws/microservices_demo/api_gateway/infrastructure/services"
+	catalogue "github.com/RadisaMilovcevic/bsep_xws/microservices_demo/common/proto/catalogue_service"
+	ordering "github.com/RadisaMilovcevic/bsep_xws/microservices_demo/common/proto/ordering_service"
+	shipping "github.com/RadisaMilovcevic/bsep_xws/microservices_demo/common/proto/shipping_service"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
-	"github.com/tamararankovic/microservices_demo/api_gateway/domain"
-	"github.com/tamararankovic/microservices_demo/api_gateway/infrastructure/services"
-	catalogue "github.com/tamararankovic/microservices_demo/common/proto/catalogue_service"
-	ordering "github.com/tamararankovic/microservices_demo/common/proto/ordering_service"
-	shipping "github.com/tamararankovic/microservices_demo/common/proto/shipping_service"
 	"net/http"
 )
 

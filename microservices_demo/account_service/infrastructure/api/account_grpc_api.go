@@ -1,8 +1,8 @@
 package api
 
 import (
-	"account_service/application"
 	"context"
+	"github.com/RadisaMilovcevic/bsep_xws/microservices_demo/account_service/application"
 	pb "github.com/RadisaMilovcevic/bsep_xws/microservices_demo/common/proto/account_service"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
@@ -24,11 +24,11 @@ func (handler *AccountHandler) Get(ctx context.Context, request *pb.GetRequest) 
 	if err != nil {
 		return nil, err
 	}
-	product, err := handler.service.Get(objectId)
+	account, err := handler.service.Get(objectId)
 	if err != nil {
 		return nil, err
 	}
-	productPb := mapProduct(product)
+	accountPb := mapAcount(account)
 	response := &pb.GetResponse{
 		Account: accountPb,
 	}
