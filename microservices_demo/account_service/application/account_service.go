@@ -23,7 +23,7 @@ func (service *AccountService) GetAll() ([]*domain.Account, error) {
 	return service.store.GetAll()
 }
 
-func (service *AccountService) Create(account *domain.Account, address string) error {
+func (service *AccountService) Create(account *domain.Account) error {
 	err := service.store.Insert(account)
 	if err != nil {
 		return err

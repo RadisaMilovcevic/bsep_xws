@@ -52,7 +52,7 @@ func (handler *AccountHandler) GetAll(ctx context.Context, request *pb.GetAllReq
 
 func (handler *AccountHandler) CreateAccount(ctx context.Context, request *pb.CreateAccountRequest) (*pb.CreateAccountResponse, error) {
 	account := request.Account
-	err := handler.service.Create(account, request.Account.Address)
+	err := handler.service.Create(mapNewAccount(account))
 	if err != nil {
 		return nil, err
 	}
