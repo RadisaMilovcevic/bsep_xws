@@ -49,3 +49,14 @@ func (handler *AccountHandler) GetAll(ctx context.Context, request *pb.GetAllReq
 	}
 	return response, nil
 }
+
+func (handler *AccountHandler) CreateAccount(ctx context.Context, request *pb.CreateAccountRequest) (*pb.CreateOrderResponse, error) {
+	order := mapNewOrder(request.Order)
+	err := handler.service.Create(order, request.Order.Address)
+	if err != nil {
+		return nil, err
+	}
+	return &pb.CreateOrderResponse{
+		Order: mapOrder(order),
+	}, nil
+}
