@@ -36,6 +36,7 @@ func (store *AccountMongoDBStore) GetAll() ([]*domain.Account, error) {
 }
 
 func (store *AccountMongoDBStore) Insert(account *domain.Account) error {
+	account.Id = primitive.NewObjectID()
 	result, err := store.accounts.InsertOne(context.TODO(), account)
 	if err != nil {
 		return err
